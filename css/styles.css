@@ -1,20 +1,32 @@
 body {
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  line-height: 1.7em;
+}
+header {
+  background-color: rgb(218, 172, 218);
+  padding: 2%;
 }
 nav {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  padding: 2%;
 }
 nav ul {
   display: flex;
   justify-content: space-around;
   list-style: none;
+  background-color: rgb(65, 31, 65);
+  padding: 1%;
+  border-radius: 5px;
 }
 nav ul a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 nav ul a:hover {
   text-decoration: underline;
@@ -22,4 +34,96 @@ nav ul a:hover {
 footer {
   text-align: center;
   line-height: 1.7em;
+  background-color: rgb(163, 100, 149);
+  width: 100%;
+  margin-top: auto;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+#headercontainer {
+  display: flex;
+  align-items: center;
+}
+h1 {
+  width: 50%;
+}
+h2 {
+  text-align: center;
+}
+h3 {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bordercontainer {
+  border: 1px solid black;
+  padding: 3%;
+  border-radius: 5px;
+  margin-bottom: 100px;
+}
+.formlayout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+form {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.radioinput {
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  main {
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+  #headercontainer {
+    flex-direction: column;
+  }
+  h1 {
+    width: 100%;
+    text-align: center;
+    padding-top: 3%;
+  }
+  nav {
+    width: 100%;
+  }
+  nav ul {
+    text-align: center;
+    border-radius: 0px;
+    margin-bottom: 0;
+    line-height: 4rem;
+    font-size: 1.2rem;
+  }
+  header {
+    padding: 0%;
+  }
+  footer {
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+  .formlayout {
+    flex-direction: column;
+    align-items: normal;
+  }
+  .inputlayout {
+    display: flex;
+    justify-content: space-between;
+  }
+  main {
+    width: 90%;
+  }
 }

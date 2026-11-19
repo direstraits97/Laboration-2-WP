@@ -9,6 +9,10 @@
   </head>
   <body>
     <header>
+    <div id="headercontainer">
+      <h1>
+        Laboration 2
+      </h1>
       <nav>
         <ul>
           <li><a href="index.php">Startsida</a></li>
@@ -16,4 +20,5 @@
           <li><a href="ai.php">AI</a></li>
         </ul>
       </nav>
+    </div>
     </header>
