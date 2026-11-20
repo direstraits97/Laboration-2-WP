@@ -1,10 +1,28 @@
 <?php 
-include("includes/header.php"); ?>
+include("includes/header.php");
+?>
     <main>
       <h2>Min Bucketlist</h2>
-      <div class="bordercontainer">
-       <p>Här ska poster hamna</p>
-      </div>
+      <section class="bordercontainer">
+        <h3>
+          Innehåll
+        </h3>
+       <?php 
+      $bucketlistItem = new BucketlistItem();
+
+      $bucketlistItems = $bucketlistItem->getItems();
+
+      foreach($bucketlistItems as $item) {
+        ?>
+        <article>
+          <h3><?= $item["name"]; ?></h3>
+          <p><?= $item["description"]; ?></p>
+          <p><?= $item["priority"]; ?></p>
+        </article>
+        <?php
+      }
+       ?>
+      </section>
       <div class="bordercontainer">
       <h3>Lägg till innehåll i Bucketlist</h3>
       <form action="">
