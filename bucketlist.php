@@ -31,7 +31,7 @@ include("includes/header.php");
           <p><?= $item['priority']; ?></p>
           <h4>Skapad:</h4>
           <p><?= substr($item['created_at'], 0, 16); ?></p>
-         <button class="deletebutton"><a href="bucketlist.php?deleteid=<?= $item['id']; ?>">Radera</a></button>
+         <a class="deletebutton" href="bucketlist.php?deleteid=<?= $item['id']; ?>"><div class="buttoncontent">Radera</div></a>
         </article>
         <?php
       }

@@ -65,23 +65,23 @@ include("includes/header.php");
         <div class="formdescriptionlayout">
         <label for="description">Beskrivning:</label>
         <textarea name="description" id="description" class="description"><?=$description; ?></textarea>
-        </div class="formlayout">
+        </div>
         <p>
           Prioritet:
         </p>
         <div class="formlayout">
         <div class="inputlayout">
-        <label for="levelone">Prioritetsnivå 1</label>
+        <label for="levelone">Nivå 1</label>
         <input type="radio" id="levelone" name="priority" value="1" class="radioinput">
         </div>
         <br>
         <div class="inputlayout">
-        <label for="leveltwo">Prioritetsnivå 2</label>
+        <label for="leveltwo">Nivå 2</label>
         <input type="radio" id="leveltwo" name="priority" value="2" class="radioinput">
         </div>
         <br>
         <div class="inputlayout">
-        <label for="levelthree">Prioritetsnivå 3</label>
+        <label for="levelthree">Nivå 3</label>
         <input type="radio" id="levelthree" name="priority" value="3" class="radioinput">
         </div>
         </div>

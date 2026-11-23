@@ -1,5 +1,5 @@
 <?php
-$devMode = true;
+$devMode = false;
 
 if($devMode) {
   error_reporting(-1);
@@ -18,6 +18,6 @@ if ($devMode) {
 } else {
   define("DBHOST", "studentmysql.miun.se");
   define("DBUSER", "joba1602");
-  define("DBPASS", "msCX,Q48bu");
+  define("DBPASS", "3fymHDt!af");
   define("DBDATABASE", "joba1602");
 }
