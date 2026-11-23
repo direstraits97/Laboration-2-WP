@@ -21,7 +21,7 @@ class BucketlistItem {
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
   }
 
-  public function addItem(string $name, string $description, int $priority) : bool {
+  public function addItem(string $name, string $description, string $priority) : bool {
     
   if(!$this->setName($name)) {
    return false;
@@ -35,8 +35,14 @@ class BucketlistItem {
     return false;
   }
 
-    $sql = "INSERT INTO bucketlistItem($this->name, $this->description, $this->priority)VALUES('$name', '$description', '$priority');";
+    $sql = "INSERT INTO bucketlistItem(name, description, priority)VALUES('$this->name', '$this->description', '$this->priority');";
 
+    return mysqli_query ($this->db, $sql);
+  }
+
+  public function deleteItem(int $id) : bool {
+    $id = intval($id);
+    $sql = "DELETE FROM bucketlistItem WHERE id=$id;";
     return mysqli_query ($this->db, $sql);
   }
 
@@ -56,11 +62,15 @@ class BucketlistItem {
    return false;
   }
 
-  public function setPriority(int $priority) : bool {
-    if($priority != 1 || $priority != 2 || $priority != 3) {
+  public function setPriority(string $priority) : bool {
+    if($priority != "1" && $priority != "2" && $priority != "3") {
       return false;
     }
     $this->priority = $this->db->real_escape_string($priority);
     return true;
+  }
+
+  public function preventXss($value) : string {
+    return htmlspecialchars((string)$value, ENT_QUOTES, "UTF-8");
   }
 }

@@ -80,9 +80,41 @@ form {
 .radioinput {
   margin: 0;
 }
+article {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+.error {
+  background-color: rgb(124, 16, 16);
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  padding: 1%;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.confirmation {
+  background-color: rgb(10, 77, 10);
+  color: white;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
+  font-weight: bold;
+  border-radius: 5px;
+}
 
 @media (max-width: 1024px) {
   main {
+    width: 70%;
+  }
+  h1 {
+    width: 30%;
+  }
+  nav {
     width: 70%;
   }
 }

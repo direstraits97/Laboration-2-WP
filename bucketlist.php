@@ -5,56 +5,37 @@ include("includes/header.php");
       <h2>Min Bucketlist</h2>
       <section class="bordercontainer">
         <h3>
-          Innehåll
+          Bucketlist
         </h3>
        <?php 
       $bucketlistItem = new BucketlistItem();
+
+      if(isset($_GET['deleteid'])) {
+        $deleteId = intval($_GET['deleteid']);
+        if($bucketlistItem->deleteItem($deleteId)) {
+          echo "<p>Innehåll raderat!</p>";
+        } else {
+          echo "<p>Fel vid radering av innehåll...</p>";
+        }
+      }
 
       $bucketlistItems = $bucketlistItem->getItems();
 
       foreach($bucketlistItems as $item) {
         ?>
         <article>
-          <h3><?= $item["name"]; ?></h3>
-          <p><?= $item["description"]; ?></p>
-          <p><?= $item["priority"]; ?></p>
+          <h4><?= $bucketlistItem->preventXss($item['name']); ?></h4>
+          <h4>Beskrivning:</h4>
+          <p><?= $bucketlistItem->preventXss($item['description']); ?></p>
+          <h4>Prioritetsnivå:</h4>
+          <p><?= $item['priority']; ?></p>
+          <h4>Skapad:</h4>
+          <p><?= $item['created_at']; ?></p>
+         <button><a href="bucketlist.php?deleteid=<?= $item['id']; ?>">Radera</a></button>
         </article>
         <?php
       }
        ?>
       </section>
-      <div class="bordercontainer">
-      <h3>Lägg till innehåll i Bucketlist</h3>
-      <form action="">
-        <div class="formlayout">
-        <label for="name">Namn:</label>
-        <textarea name="name" id="name"></textarea>
-        </div>
-        <br>
-        <div class="formlayout">
-        <label for="description">Beskrivning:</label>
-        <textarea name="description" id="description"></textarea>
-        </div class="formlayout">
-        <p>
-          Prioritet:
-        </p>
-        <div class="formlayout">
-        <div class="inputlayout">
-        <label for="levelone">Prioritetsnivå 1</label>
-        <input type="radio" id="levelone" name="priority" value="1" class="radioinput">
-        </div>
-        <br>
-        <div class="inputlayout">
-        <label for="leveltwo">Prioritetsnivå 2</label>
-        <input type="radio" id="leveltwo" name="priority" value="2" class="radioinput">
-        </div>
-        <br>
-        <div class="inputlayout">
-        <label for="levelthree">Prioritetsnivå 3</label>
-        <input type="radio" id="levelthree" name="priority" value="3" class="radioinput">
-        </div>
-        </div>
-      </form>
-</div>
     </main>
 <?php include("includes/footer.php"); ?>

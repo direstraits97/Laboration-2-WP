@@ -11,7 +11,7 @@ $sql = "DROP TABLE IF EXISTS bucketlistItem;
     id INT(11) PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(80) NOT NULL,
     description VARCHAR(300) NOT NULL,
-    priority INT(1) NOT NULL,
+    priority CHAR(1) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );";
 

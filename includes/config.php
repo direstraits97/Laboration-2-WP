@@ -15,4 +15,9 @@ if ($devMode) {
   define("DBUSER", "lab2wp");
   define("DBPASS", "Kst-0gBpGN6vKskz");
   define("DBDATABASE", "lab2wp");
+} else {
+  define("DBHOST", "studentmysql.miun.se");
+  define("DBUSER", "joba1602");
+  define("DBPASS", "msCX,Q48bu");
+  define("DBDATABASE", "joba1602");
 }
