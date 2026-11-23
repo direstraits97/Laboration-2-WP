@@ -39,7 +39,7 @@ include("includes/header.php");
          $name = "";
          $description = "";
          $priority = "";
-        } else echo "<p class='error'>Det gick inte att lägga till innehållet.</p>";
+        } else echo "<p class='errormessage'>Det gick inte att lägga till innehållet.</p>";
       }
       ?>
 
@@ -47,7 +47,7 @@ include("includes/header.php");
         <?php 
         if(isset($errors)) {
           ?>
-          <ul>
+          <ul class="error">
               <?php
               foreach($errors as $error) {
                 echo "<li>" . $error . "</li>";
@@ -62,9 +62,9 @@ include("includes/header.php");
         <textarea name="name" id="name"><?=$name; ?></textarea>
         </div>
         <br>
-        <div class="formlayout">
+        <div class="formdescriptionlayout">
         <label for="description">Beskrivning:</label>
-        <textarea name="description" id="description"><?=$description; ?></textarea>
+        <textarea name="description" id="description" class="description"><?=$description; ?></textarea>
         </div class="formlayout">
         <p>
           Prioritet:
@@ -85,7 +85,7 @@ include("includes/header.php");
         <input type="radio" id="levelthree" name="priority" value="3" class="radioinput">
         </div>
         </div>
-        <input type="submit" value="Lägg till i Bucketlist">
+        <input type="submit" value="Lägg till" class="button">
       </form>
 </div>
 </main>

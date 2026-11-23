@@ -13,7 +13,7 @@ include("includes/header.php");
       if(isset($_GET['deleteid'])) {
         $deleteId = intval($_GET['deleteid']);
         if($bucketlistItem->deleteItem($deleteId)) {
-          echo "<p>Innehåll raderat!</p>";
+          echo "<p class='confirmation'>Innehåll raderat!</p>";
         } else {
           echo "<p>Fel vid radering av innehåll...</p>";
         }
@@ -24,14 +24,14 @@ include("includes/header.php");
       foreach($bucketlistItems as $item) {
         ?>
         <article>
-          <h4><?= $bucketlistItem->preventXss($item['name']); ?></h4>
+          <h4 class="name"><?= $bucketlistItem->preventXss($item['name']); ?></h4>
           <h4>Beskrivning:</h4>
           <p><?= $bucketlistItem->preventXss($item['description']); ?></p>
           <h4>Prioritetsnivå:</h4>
           <p><?= $item['priority']; ?></p>
           <h4>Skapad:</h4>
-          <p><?= $item['created_at']; ?></p>
-         <button><a href="bucketlist.php?deleteid=<?= $item['id']; ?>">Radera</a></button>
+          <p><?= substr($item['created_at'], 0, 16); ?></p>
+         <button class="deletebutton"><a href="bucketlist.php?deleteid=<?= $item['id']; ?>">Radera</a></button>
         </article>
         <?php
       }

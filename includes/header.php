@@ -15,9 +15,9 @@
       </h1>
       <nav>
         <ul>
-          <li><a href="index.php">Startsida</a></li>
-          <li><a href="bucketlist.php">Bucketlist</a></li>
-          <li><a href="addToBucketlist.php">Lägg till i Bucketlist</a></li>
+          <li class="borderbottom"><a href="index.php">Startsida</a></li>
+          <li class="borderbottom"><a href="bucketlist.php">Bucketlist</a></li>
+          <li class="borderbottom"><a href="addToBucketlist.php">Lägg till i Bucketlist</a></li>
           <li><a href="ai.php">AI</a></li>
         </ul>
       </nav>
