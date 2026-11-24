@@ -10,21 +10,21 @@ include("includes/header.php");
 
       <?php 
 
-      $name = "";
+      $name = ""; //Nollställa variabler.
       $description = "";
       $priority = "";
 
-      if(isset($_POST['name'])) {
+      if(isset($_POST['name'])) { //Kolla om formuläret är skickat.
 
-        $name = $_POST['name'] ?? "";
+        $name = $_POST['name'] ?? ""; //Blir angivet innehåll eller tom textsträng.
         $description = $_POST['description'] ?? "";
         $priority = $_POST['priority'] ?? "";
 
-        $newItem = new BucketlistItem();
+        $newItem = new BucketlistItem(); //Ny instans av klass.
 
-        $errors = [];
+        $errors = []; //Ev. felmeddelanden.
 
-        if(!$newItem->setName($name)) {
+        if(!$newItem->setName($name)) { //Kontroll görs i klassen för att sätta värde, misslyckas detta skapas individuella felmeddelanden nedan.
           array_push($errors, "Du måste ange ett namn!");
         }
         if(!$newItem->setDescription($description)) {
@@ -34,18 +34,18 @@ include("includes/header.php");
           array_push($errors, "Du måste ange en prioritetsnivå!");
         }
 
-        if($newItem->addItem($name, $description, $priority)) {
+        if($newItem->addItem($name, $description, $priority)) { //Vid lyckat genomförande av tillägg i bucketlist.
          echo "<p class='confirmation'>$name är tillagd i din Bucketlist!</p>";
-         $name = "";
+         $name = ""; //Nollställa variabler vid lyckad process.
          $description = "";
          $priority = "";
-        } else echo "<p class='errormessage'>Det gick inte att lägga till innehållet.</p>";
+        } else echo "<p class='errormessage'>Det gick inte att lägga till innehållet.</p>"; //Vid fel input + individuella felmeddelanden.
       }
       ?>
 
       <form method="post">
         <?php 
-        if(isset($errors)) {
+        if(isset($errors)) { //Om formuläret är skickat och fel finns skrivs de ut här i en osorterad lista.
           ?>
           <ul class="error">
               <?php

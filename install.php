@@ -5,7 +5,7 @@ if($db->connect_errno > 0){
     die('Fel vid anslutning [' . $db->connect_error . ']');
 } 
 
-
+//SQL-kommando för att skapa önskad tabell.
 $sql = "DROP TABLE IF EXISTS bucketlistItem;
     CREATE TABLE bucketlistItem(
     id INT(11) PRIMARY KEY AUTO_INCREMENT,
@@ -17,11 +17,11 @@ $sql = "DROP TABLE IF EXISTS bucketlistItem;
 
 
 $sql .= "INSERT INTO bucketlistItem (name, description, priority) VALUES
-('Test', 'First test', 1);";
+('Test', 'First test', 1);"; //Testdata
 
 echo "<pre>$sql</pre>";
 
-if($db->multi_query($sql)) {
+if($db->multi_query($sql)) { //Lyckad körning av fråga.
     echo "Tabell installerad.";
 } else {
     echo "Fel vid installation av Tabell.";
